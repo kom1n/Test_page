@@ -5,20 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Přesměrování na App Store nebo Google Play</title>
     <script type="text/javascript">
+        // Funkce pro detekci zařízení a přesměrování
         function redirectToAppStore() {
             var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
+            // Podmínka pro iOS zařízení (iPhone, iPad, iPod)
             if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-                window.location.href = "https://apps.apple.com/cz/app/your-ios-app"; // Změň odkaz na svůj App Store
+                window.location.href = "https://apps.apple.com/app/sportisimo/id6445910670"; // Změň odkaz na svůj App Store
             } 
+            // Podmínka pro Android zařízení
             else if (/android/i.test(userAgent)) {
-                window.location.href = "https://play.google.com/store/apps/details?id=your.android.app"; // Změň odkaz na svůj Google Play
+                window.location.href = "https://play.google.com/store/apps/details?id=com.sportisimo.app"; // Změň odkaz na svůj Google Play
             } 
+            // Případ pro ostatní zařízení nebo desktop
             else {
-                window.location.href = "https://your-website.com"; // Změň odkaz na svou webovou stránku
+                window.location.href = "https://www.sportisimo.cz"; // Změň odkaz na svou webovou stránku
             }
         }
 
+        // Zavolání funkce při načtení stránky
         window.onload = redirectToAppStore;
     </script>
 </head>
